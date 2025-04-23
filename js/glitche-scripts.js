@@ -112,7 +112,7 @@ $(function () {
 	}, 'a.btn, .btn');
 
 	/* Validate contact form */
-	$("#cform").validate({
+	$("form[action='https://formspree.io/f/xnndqpzy']").validate({
 		rules: {
 			name: {
 				required: true
@@ -125,24 +125,21 @@ $(function () {
 				email: true
 			}
 		},
-		success: "valid",
-		submitHandler: function() {
+		submitHandler: function(form) {
 			$.ajax({
-				url: 'mailer/feedback.php',
-				type: 'post',
-				dataType: 'json',
-				data: 'name='+ $("#cform").find('input[name="name"]').val() + '&email='+ $("#cform").find('input[name="email"]').val() + '&message=' + $("#cform").find('textarea[name="message"]').val(),
-				beforeSend: function() {
-
-				},
-				complete: function() {
-
-				},
-				success: function(data) {
+				url: form.action,
+				method: "POST",
+				data: $(form).serialize(),
+				dataType: "json",
+				success: function() {
 					$('#cform').fadeOut();
 					$('.alert-success').delay(1000).fadeIn();
+				},
+				error: function() {
+					alert('There was a problem sending your message. Please try again.');
 				}
 			});
+			return false;
 		}
 	});
 
