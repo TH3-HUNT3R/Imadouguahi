@@ -1,173 +1,921 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>hunt3r@cybersec:~# whoami | Imad Ouguahi - Cybersecurity Professional</title>
+	<meta name="description" content="Cybersecurity Professional | Red Team Analyst | CWL Certified | Penetration Tester">
+	<meta name="keywords" content="cybersecurity, red team, penetration testing, CWL, CBBH, bug bounty, hacker">
 	
-	<!-- Basic -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>Imad Ouguahi - Cybersecurity Professional</title>
-	<meta name="description" content="Cybersecurity Professional | Red Team Analyst | CWL Certified">
-	<meta name="keywords" content="cybersecurity, red team, penetration testing, CWL, CBBH">
-	
-	<!-- Mobile Specific Metas -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-	
-	<!-- Load Fonts -->
-	<link href='../../../fonts.googleapis.com/css99f1.css?family=Roboto+Mono:400,100,300italic,300,100italic,400italic,500,500italic,700,700italic&amp;subset=latin,cyrillic' rel='stylesheet'>
+	<!-- Google Fonts - Monospace -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 	
 	<!-- CSS -->
-	<link rel="stylesheet" href="css/glitche-basic.css" />
-	<link rel="stylesheet" href="css/glitche-layout.css" />
-	<link rel="stylesheet" href="css/ionicons.css" />
-	<link rel="stylesheet" href="css/magnific-popup.css" />
-	<link rel="stylesheet" href="css/animate.css" />
-
-	<!--
-		Template RTL
-	-->
-	<!--<link rel="stylesheet" href="css/rtl.css" />-->
+	<link rel="stylesheet" href="css/terminal.css">
 	
-	<!--
-		Template Colors
-	-->
-	<link rel="stylesheet" href="css/template-colors/orange.css" />
-	<!--<link rel="stylesheet" href="css/template-colors/blue.css" />-->
-	<!--<link rel="stylesheet" href="css/template-colors/green.css" />-->
-	<!--<link rel="stylesheet" href="css/template-colors/pink.css" />-->
-	<!--<link rel="stylesheet" href="css/template-colors/purple.css" />-->
-	<!--<link rel="stylesheet" href="css/template-colors/red.css" />-->
-
-	<!--
-		Template Dark
-	-->
-	<!--<link rel="stylesheet" href="css/template-dark/dark.css" />-->
-
-	
-	<!--[if lt IE 9]>
-	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-	
-	<!-- Favicons -->
-	<link rel="shortcut icon" href="images/favicons/favicon.ico">
+	<!-- Favicon -->
+	<link rel="icon" type="image/svg+xml" href="images/favicons/favicon.svg">
+	<link rel="icon" type="image/x-icon" href="images/favicons/favicon.ico">
+	<link rel="icon" type="image/png" sizes="32x32" href="images/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="images/favicons/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/favicons/apple-touch-icon.png">
 	
 	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="../../../www.googletagmanager.com/gtag/js701c?id=UA-125314689-11"></script>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125314689-11"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
-
-	  gtag('config', 'UA-125314689-11');
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+		gtag('config', 'UA-125314689-11');
 	</script>
-
 </head>
-
-<body>	
-	
-	<!-- Preloader -->
-	<div class="preloader">
-		<div class="centrize full-width">
-			<div class="vertical-center">
-				<div class="pre-inner">
-					<div class="load typing-load"><p>loading...</p></div>
-					<span class="typed-load"></span>
-				</div>
-			</div>
+<body>
+	<!-- Terminal Boot Screen -->
+	<div id="boot-screen" class="boot-screen">
+		<div class="boot-content">
+			<div class="boot-line">Initializing system...</div>
+			<div class="boot-line">Loading kernel modules...</div>
+			<div class="boot-line">Starting network services...</div>
+			<div class="boot-line">Mounting filesystems...</div>
+			<div class="boot-line">Starting terminal session...</div>
+			<div class="boot-line">Connecting to cybersec@portfolio...</div>
+			<div class="boot-line boot-complete">System ready. Welcome, hunt3r.</div>
+			<div class="boot-prompt">hunt3r@cybersec:~# <span class="cursor-blink">_</span></div>
 		</div>
 	</div>
-	
-	<!-- Container -->
-	<div class="container">
-		
-		<!-- Header -->
-		<header>
-			<div class="head-top">
-				<a href="#" class="menu-btn"><span></span></a>
-				<div class="top-menu">
-					<ul>
-						<li><a href="resume.html" class="lnk">Resume</a></li>
-						<li><a href="blog.html" class="lnk">Blog</a></li>
-						<li><a href="contacts.html" class="btn">Contacts</a></li>
-					</ul>
+
+	<!-- Scanline Overlay -->
+	<div class="scanlines"></div>
+
+	<!-- Main Container -->
+	<div id="main-content" class="main-container">
+		<!-- Navigation - Terminal Status Bar -->
+		<nav class="terminal-nav">
+			<div class="nav-status">
+				<span class="status-item">[SYSTEM: ONLINE]</span>
+				<span class="status-item">[USER: hunt3r]</span>
+				<span class="status-item">[SESSION: ACTIVE]</span>
+			</div>
+			<div class="nav-menu">
+				<a href="#home" class="nav-link">$ home</a>
+				<a href="#about" class="nav-link">$ about</a>
+				<a href="#tools" class="nav-link">$ tools</a>
+				<a href="#projects" class="nav-link">$ projects</a>
+				<a href="#blog" class="nav-link">$ blog</a>
+				<a href="#contact" class="nav-link">$ contact</a>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<section id="home" class="hero-section">
+			<div class="matrix-bg" id="matrix-canvas"></div>
+			<div class="hero-content">
+				<div class="ascii-art">
+					<pre class="ascii-name">
+██╗███╗░░░███╗░█████╗░██████╗░  ░█████╗░██╗░░░██╗░██████╗░██╗░░░██╗░█████╗░██╗░░██╗██╗
+██║████╗░████║██╔══██╗██╔══██╗  ██╔══██╗██║░░░██║██╔════╝░██║░░░██║██╔══██╗██║░░██║██║
+██║██╔████╔██║███████║██║░░██║  ██║░░██║██║░░░██║██║░░██╗░██║░░░██║███████║███████║██║
+██║██║╚██╔╝██║██╔══██║██║░░██║  ██║░░██║██║░░░██║██║░░╚██╗██║░░░██║██╔══██║██╔══██║██║
+██║██║░╚═╝░██║██║░░██║██████╔╝  ╚█████╔╝╚██████╔╝╚██████╔╝╚██████╔╝██║░░██║██║░░██║██║
+╚═╝╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═════╝░  ░╚════╝░░╚═════╝░░╚═════╝░░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝╚═╝
+					</pre>
+				</div>
+				<div class="terminal-prompt hero-prompt">
+					<span class="prompt-user">hunt3r@cybersec</span><span class="prompt-sep">:</span><span class="prompt-path">~</span><span class="prompt-symbol">#</span> <span class="command">whoami</span>
+				</div>
+				<div class="typing-text" id="typing-text">
+					<span class="typing-cursor">_</span>
+				</div>
+				<div class="hero-buttons">
+					<a href="assets/imadouguahicv.pdf" download class="resume-btn resume-btn-fr">
+						<span class="btn-prefix">></span>
+						<span class="btn-text">download_resume --lang=fr</span>
+						<span class="btn-flag">🇫🇷</span>
+						<span class="btn-icon">↓</span>
+					</a>
+					<a href="assets/imadouguahicveng.pdf" download class="resume-btn resume-btn-en">
+						<span class="btn-prefix">></span>
+						<span class="btn-text">download_resume --lang=en</span>
+						<span class="btn-flag">🇬🇧</span>
+						<span class="btn-icon">↓</span>
+					</a>
 				</div>
 			</div>
-		</header>
-		
-		<!-- Wrapper -->
-		<div class="wrapper">
-		
-			<!-- Started -->
-			<div class="section started">
-				<div class="centrize full-width">
-					<div class="vertical-center">
-						<div class="started-content">
-							<div class="h-title glitch-effect" data-text="I'm Imad Ouguahi">I'm <span>Imad Ouguahi</span></div>
-							<div class="h-subtitle typing-subtitle">
-								<p>Cybersecurity Professional</p>
-								<p>CWL Certified Red Team Analyst</p>
-								<p>Preparing for CBBH Certification</p>
-								<p>Based in Casablanca, Morocco</p>
-							</div>
-							<span class="typed-subtitle"></span>
+		</section>
+
+		<!-- About Section -->
+		<section id="about" class="section terminal-window">
+			<div class="terminal-header">
+				<div class="terminal-controls">
+					<span class="control close"></span>
+					<span class="control minimize"></span>
+					<span class="control maximize"></span>
+				</div>
+				<div class="terminal-title">user@portfolio:~$ cat about.txt</div>
+			</div>
+			<div class="terminal-body">
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> cat about.txt
+					</div>
+					<div class="output-content">
+						<h2 class="section-title">About Me</h2>
+						<div class="about-content">
+							<p>Once upon a time, long before certifications and titles, I was just a curious mind drawn to the unseen — fascinated by how things break and how they're meant to be protected. I wasn't taught to look for vulnerabilities; I sensed them — like a sixth sense for digital flaws.</p>
+							<p>My journey into cybersecurity wasn't sparked by trends or hype. It began with late nights chasing flags in CTF competitions, digging deep into code, and getting lost (and found) in the world of binary and shell scripts. I didn't just learn to hack — I learned to understand systems from the inside out.</p>
+							<p>I've helped secure domains from the DNS layer with SPF, DKIM, and DMARC, tracked down vulnerabilities in websites, and supported others in protecting their digital spaces. Every project, every bug report, every red teaming exercise has been a step forward.</p>
+							<p>But this isn't a career for me. It's something much more personal. I've put everything else in my life on pause just to focus on it — because this is where my passion lives. It's not a job. It's not about money or titles. It's something I feel, deeply — a part of who I am.</p>
+							<p>Today, I continue the hunt on platforms like HTB, and private labs — sharpening my skills not just to exploit, but to protect. I carry with me the mindset of a Red Teamer, the patience of a reverse engineer, and the passion of someone who simply can't stop digging deeper.</p>
+							<p class="highlight-text">This isn't a job for me. It's not even a career. It's a calling.</p>
+						</div>
+					</div>
+				</div>
+				
+				<!-- Skills as Terminal Output -->
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> ls -la skills/
+					</div>
+					<div class="skills-tree">
+						<div class="tree-item">
+							<span class="tree-icon">📁</span>
+							<span class="tree-name">Technical Skills</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Red Teaming</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Penetration Testing</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Web Application Security</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Email Security (SPF/DKIM/DMARC)</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Bug Bounty Hunting</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Network Security</span>
+						</div>
+						<div class="tree-item">
+							<span class="tree-icon">📁</span>
+							<span class="tree-name">Programming Languages</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">Python</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">PHP</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">SQL</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">JavaScript</span>
+						</div>
+						<div class="tree-item tree-indent">
+							<span class="tree-icon">📄</span>
+							<span class="tree-name">HTML/CSS</span>
+						</div>
+					</div>
+				</div>
+
+				<!-- System Info -->
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> system_info.sh
+					</div>
+					<div class="system-info">
+						<div class="info-line"><span class="info-label">Name:</span> Imad Ouguahi</div>
+						<div class="info-line"><span class="info-label">Location:</span> Casablanca, Morocco</div>
+						<div class="info-line"><span class="info-label">Field:</span> Cybersecurity</div>
+						<div class="info-line"><span class="info-label">Email:</span> ouguahii@gmail.com</div>
+						<div class="info-line"><span class="info-label">Phone:</span> +212613383197</div>
+						<div class="info-line"><span class="info-label">Certifications:</span> Certified Red Team Analyst (CRTA) 2025, ISO/IEC 27001 Information Security Associate 2025, Fortinet NSE 1 & 2 (2020)</div>
+						<div class="info-line"><span class="info-label">Education:</span> Master's in Communication Systems, Data Center and Cyber Security (SUPEMIR 2024-2025), Professional License in Cyber Security (FST Settat 2019-2020)</div>
+						<div class="info-line"><span class="info-label">Platforms:</span> HackTheBox, TryHackMe, CTF Competitions (3rd Place National CTF 2019)</div>
+						<div class="info-line"><span class="info-label">Languages:</span> Arabic (Native), English (85%), French (85%), Tamazight (50%)</div>
+					</div>
+				</div>
+
+				<!-- Resume Download Section -->
+				<div class="terminal-output resume-download-section">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> download_resume --help
+					</div>
+					<div class="resume-download-container">
+						<h3 class="download-title">Available Resume Downloads:</h3>
+						<div class="resume-buttons-grid">
+							<a href="assets/imadouguahicv.pdf" download class="resume-download-btn resume-fr">
+								<div class="resume-btn-header">
+									<span class="resume-btn-prefix">[DOWNLOAD]</span>
+									<span class="resume-btn-flag">🇫🇷 FR</span>
+								</div>
+								<div class="resume-btn-body">
+									<span class="resume-btn-command">> download_resume --lang=fr</span>
+									<span class="resume-btn-icon">↓</span>
+								</div>
+								<div class="resume-btn-footer">Télécharger CV (FR)</div>
+							</a>
+							<a href="assets/imadouguahicveng.pdf" download class="resume-download-btn resume-en">
+								<div class="resume-btn-header">
+									<span class="resume-btn-prefix">[DOWNLOAD]</span>
+									<span class="resume-btn-flag">🇬🇧 EN</span>
+								</div>
+								<div class="resume-btn-body">
+									<span class="resume-btn-command">> download_resume --lang=en</span>
+									<span class="resume-btn-icon">↓</span>
+								</div>
+								<div class="resume-btn-footer">Download Resume (EN)</div>
+							</a>
 						</div>
 					</div>
 				</div>
 			</div>
-		
-		</div>
-		
-		<!-- Footer -->
-		<footer>
-			<div class="soc">
-				<a target="_blank" href="https://github.com/TH3-HUNT3R"><span class="ion ion-social-github"></span></a>
-				<a target="_blank" href="https://www.linkedin.com/in/imad-ouguahi-423aba152/"><span class="ion ion-social-linkedin"></span></a>
-				<a target="_blank" href="https://x.com/TH3_HUNT3R_"><span class="ion ion-social-twitter"></span></a>
+		</section>
+
+		<!-- Tools Section -->
+		<section id="tools" class="section terminal-window">
+			<div class="terminal-header">
+				<div class="terminal-controls">
+					<span class="control close"></span>
+					<span class="control minimize"></span>
+					<span class="control maximize"></span>
+				</div>
+				<div class="terminal-title">user@portfolio:~$ cat tools_inventory.txt</div>
 			</div>
-			<div class="copy">© 2025 Imad Ouguahi. All rights reserved.</div>
-			<div class="clr"></div>
+			<div class="terminal-body">
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> cat tools_inventory.txt
+					</div>
+					<div class="tools-content">
+						<h2 class="section-title">Tools & Technologies</h2>
+						
+						<!-- Penetration Testing Tools -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🔓</span>
+								<span class="category-name">Penetration Testing</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Burp Suite</span>
+									<span class="tool-desc">Web application security testing</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Metasploit Framework</span>
+									<span class="tool-desc">Exploitation & post-exploitation</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Nmap</span>
+									<span class="tool-desc">Network discovery & security auditing</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">OWASP ZAP</span>
+									<span class="tool-desc">Web application security scanner</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">SQLMap</span>
+									<span class="tool-desc">SQL injection detection & exploitation</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Nessus</span>
+									<span class="tool-desc">Vulnerability scanner</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Web Security Tools -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🌐</span>
+								<span class="category-name">Web Security</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Burp Suite Pro</span>
+									<span class="tool-desc">Advanced web security testing</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">XSSer</span>
+									<span class="tool-desc">XSS vulnerability exploitation</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Nikto</span>
+									<span class="tool-desc">Web server scanner</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Wfuzz</span>
+									<span class="tool-desc">Web application fuzzer</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">DirBuster</span>
+									<span class="tool-desc">Directory & file brute forcer</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Subfinder</span>
+									<span class="tool-desc">Subdomain discovery tool</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Network Tools -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">📡</span>
+								<span class="category-name">Network Security</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Wireshark</span>
+									<span class="tool-desc">Network protocol analyzer</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Aircrack-ng</span>
+									<span class="tool-desc">WiFi security auditing</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Masscan</span>
+									<span class="tool-desc">High-speed port scanner</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Netcat</span>
+									<span class="tool-desc">Network utility & backdoor</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Ettercap</span>
+									<span class="tool-desc">MITM attack framework</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">tcpdump</span>
+									<span class="tool-desc">Packet analyzer</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Exploitation Frameworks -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">⚔️</span>
+								<span class="category-name">Exploitation Frameworks</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Metasploit</span>
+									<span class="tool-desc">Penetration testing framework</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Cobalt Strike</span>
+									<span class="tool-desc">Red team operations platform</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Empire</span>
+									<span class="tool-desc">Post-exploitation framework</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">PowerSploit</span>
+									<span class="tool-desc">PowerShell exploitation</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">BloodHound</span>
+									<span class="tool-desc">Active Directory analysis</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Impacket</span>
+									<span class="tool-desc">Network protocols toolkit</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- OSINT Tools -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🔍</span>
+								<span class="category-name">OSINT & Reconnaissance</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">theHarvester</span>
+									<span class="tool-desc">Email, subdomain & people search</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Shodan</span>
+									<span class="tool-desc">Internet-connected device search</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Maltego</span>
+									<span class="tool-desc">Link analysis & data mining</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Recon-ng</span>
+									<span class="tool-desc">Web reconnaissance framework</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Amass</span>
+									<span class="tool-desc">Network mapping & attack surface</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">SpiderFoot</span>
+									<span class="tool-desc">Automated OSINT collection</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Password & Hash Tools -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🔑</span>
+								<span class="category-name">Password & Hash Tools</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">John the Ripper</span>
+									<span class="tool-desc">Password cracker</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Hashcat</span>
+									<span class="tool-desc">Advanced password recovery</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Hydra</span>
+									<span class="tool-desc">Network login cracker</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Medusa</span>
+									<span class="tool-desc">Parallel login brute-forcer</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">CrackMapExec</span>
+									<span class="tool-desc">Network security testing</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">CeWL</span>
+									<span class="tool-desc">Custom wordlist generator</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- DNS & Email Security -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">📧</span>
+								<span class="category-name">DNS & Email Security</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">SPF/DKIM/DMARC</span>
+									<span class="tool-desc">Email authentication protocols</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">dig</span>
+									<span class="tool-desc">DNS lookup utility</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">nslookup</span>
+									<span class="tool-desc">DNS query tool</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">DNSenum</span>
+									<span class="tool-desc">DNS enumeration tool</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">MXToolbox</span>
+									<span class="tool-desc">Email & DNS diagnostics</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">DMARC Analyzer</span>
+									<span class="tool-desc">DMARC policy validation</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Reverse Engineering -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🔬</span>
+								<span class="category-name">Reverse Engineering</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Ghidra</span>
+									<span class="tool-desc">Software reverse engineering</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">IDA Pro</span>
+									<span class="tool-desc">Interactive disassembler</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Radare2</span>
+									<span class="tool-desc">Reverse engineering framework</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">x64dbg</span>
+									<span class="tool-desc">Windows debugger</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">GDB</span>
+									<span class="tool-desc">GNU debugger</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Binwalk</span>
+									<span class="tool-desc">Binary analysis tool</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- CTF & Learning Platforms -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🏆</span>
+								<span class="category-name">CTF & Learning Platforms</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">HackTheBox</span>
+									<span class="tool-desc">Penetration testing labs</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">TryHackMe</span>
+									<span class="tool-desc">Cybersecurity training platform</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">PentesterLab</span>
+									<span class="tool-desc">Web penetration testing</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">VulnHub</span>
+									<span class="tool-desc">Vulnerable VMs for practice</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">CTFtime</span>
+									<span class="tool-desc">CTF competition tracker</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">OverTheWire</span>
+									<span class="tool-desc">Security wargames</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Development & Scripting -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">💻</span>
+								<span class="category-name">Development & Scripting</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Python</span>
+									<span class="tool-desc">Scripting & automation</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Bash</span>
+									<span class="tool-desc">Shell scripting</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">PowerShell</span>
+									<span class="tool-desc">Windows automation</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Git</span>
+									<span class="tool-desc">Version control</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Docker</span>
+									<span class="tool-desc">Containerization</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">VS Code</span>
+									<span class="tool-desc">Code editor</span>
+								</div>
+							</div>
+						</div>
+
+						<!-- Operating Systems -->
+						<div class="tools-category">
+							<div class="category-header">
+								<span class="category-icon">🖥️</span>
+								<span class="category-name">Operating Systems</span>
+							</div>
+							<div class="tools-grid">
+								<div class="tool-item">
+									<span class="tool-name">Kali Linux</span>
+									<span class="tool-desc">Penetration testing distro</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Parrot Security</span>
+									<span class="tool-desc">Security-focused OS</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">BlackArch</span>
+									<span class="tool-desc">Arch-based security distro</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Windows</span>
+									<span class="tool-desc">Target & testing environment</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">Ubuntu/Debian</span>
+									<span class="tool-desc">Linux environments</span>
+								</div>
+								<div class="tool-item">
+									<span class="tool-name">VMware/VirtualBox</span>
+									<span class="tool-desc">Virtualization platforms</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="section">
+			<div class="section-header">
+				<div class="terminal-prompt section-prompt">
+					<span class="prompt-user">user@portfolio</span><span class="prompt-sep">:</span><span class="prompt-path">~/projects</span><span class="prompt-symbol">$</span> <span class="command">ls -la</span>
+				</div>
+			</div>
+			<div class="projects-grid">
+				<div class="project-card terminal-window">
+					<div class="terminal-header">
+						<div class="terminal-controls">
+							<span class="control close"></span>
+							<span class="control minimize"></span>
+							<span class="control maximize"></span>
+						</div>
+						<div class="terminal-title">project_redteam.sh</div>
+					</div>
+					<div class="terminal-body">
+						<div class="project-status">[ACTIVE]</div>
+						<h3 class="project-title">Red Team Operations</h3>
+						<p class="project-description">Simulating real-world cyber attacks to test and strengthen organizational security posture. Advanced penetration testing and vulnerability assessments.</p>
+						<div class="project-tech">
+							<span class="tech-tag">Penetration Testing</span>
+							<span class="tech-tag">Red Teaming</span>
+							<span class="tech-tag">Vulnerability Assessment</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card terminal-window">
+					<div class="terminal-header">
+						<div class="terminal-controls">
+							<span class="control close"></span>
+							<span class="control minimize"></span>
+							<span class="control maximize"></span>
+						</div>
+						<div class="terminal-title">project_bugbounty.sh</div>
+					</div>
+					<div class="terminal-body">
+						<div class="project-status">[ACTIVE]</div>
+						<h3 class="project-title">Bug Bounty Hunting</h3>
+						<p class="project-description">Proactively identifying and reporting security vulnerabilities in web applications and systems. Specialized in XSS, SQL injection, and API security issues.</p>
+						<div class="project-tech">
+							<span class="tech-tag">Web Security</span>
+							<span class="tech-tag">Bug Bounty</span>
+							<span class="tech-tag">OWASP Top 10</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card terminal-window">
+					<div class="terminal-header">
+						<div class="terminal-controls">
+							<span class="control close"></span>
+							<span class="control minimize"></span>
+							<span class="control maximize"></span>
+						</div>
+						<div class="terminal-title">project_emailsec.sh</div>
+					</div>
+					<div class="terminal-body">
+						<div class="project-status">[COMPLETE]</div>
+						<h3 class="project-title">Email Security Implementation</h3>
+						<p class="project-description">Led email security initiatives including DNS configuration (SPF, DKIM, DMARC) and domain management. Protected domains from email spoofing and phishing attacks.</p>
+						<div class="project-tech">
+							<span class="tech-tag">DNS Security</span>
+							<span class="tech-tag">SPF/DKIM/DMARC</span>
+							<span class="tech-tag">Email Security</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card terminal-window">
+					<div class="terminal-header">
+						<div class="terminal-controls">
+							<span class="control close"></span>
+							<span class="control minimize"></span>
+							<span class="control maximize"></span>
+						</div>
+						<div class="terminal-title">project_websec.sh</div>
+					</div>
+					<div class="terminal-body">
+						<div class="project-status">[ACTIVE]</div>
+						<h3 class="project-title">Web Application Security</h3>
+						<p class="project-description">Securing web applications against common vulnerabilities. Conducted security audits and implemented secure coding practices for multiple clients.</p>
+						<div class="project-tech">
+							<span class="tech-tag">Web Security</span>
+							<span class="tech-tag">Security Auditing</span>
+							<span class="tech-tag">Secure Coding</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card terminal-window">
+					<div class="terminal-header">
+						<div class="terminal-controls">
+							<span class="control close"></span>
+							<span class="control minimize"></span>
+							<span class="control maximize"></span>
+						</div>
+						<div class="terminal-title">project_pfe.sh</div>
+					</div>
+					<div class="terminal-body">
+						<div class="project-status">[IN PROGRESS]</div>
+						<h3 class="project-title">PFE M2 - Pentesting Project</h3>
+						<p class="project-description">Master's degree final project: Comprehensive penetration testing of a private website with detailed security reports and remediation solutions.</p>
+						<div class="project-tech">
+							<span class="tech-tag">Penetration Testing</span>
+							<span class="tech-tag">Security Reporting</span>
+							<span class="tech-tag">Vulnerability Remediation</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="project-card terminal-window">
+					<div class="terminal-header">
+						<div class="terminal-controls">
+							<span class="control close"></span>
+							<span class="control minimize"></span>
+							<span class="control maximize"></span>
+						</div>
+						<div class="terminal-title">project_ctf.sh</div>
+					</div>
+					<div class="terminal-body">
+						<div class="project-status">[COMPLETE]</div>
+						<h3 class="project-title">CTF Competitions</h3>
+						<p class="project-description">Third place in national CTF competition. Regular participation in HackTheBox, TryHackMe, and other cybersecurity challenges to sharpen skills.</p>
+						<div class="project-tech">
+							<span class="tech-tag">CTF</span>
+							<span class="tech-tag">HackTheBox</span>
+							<span class="tech-tag">Cybersecurity Challenges</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Blog Section -->
+		<section id="blog" class="section">
+			<div class="section-header">
+				<div class="terminal-prompt section-prompt">
+					<span class="prompt-user">user@portfolio</span><span class="prompt-sep">:</span><span class="prompt-path">~/blog</span><span class="prompt-symbol">$</span> <span class="command">fetch_medium_posts.sh</span>
+				</div>
+			</div>
+			<div class="blog-container">
+				<div class="terminal-output blog-loading" id="blog-loading">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~/blog$</span> fetch_medium_posts.sh
+					</div>
+					<div class="loading-text">
+						<span class="loading-dot">.</span>
+						<span class="loading-dot">.</span>
+						<span class="loading-dot">.</span>
+						<span class="loading-message">Fetching latest articles from Medium...</span>
+					</div>
+				</div>
+				<div class="blog-posts" id="blog-posts">
+					<!-- Medium posts will be loaded here dynamically -->
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="section terminal-window">
+			<div class="terminal-header">
+				<div class="terminal-controls">
+					<span class="control close"></span>
+					<span class="control minimize"></span>
+					<span class="control maximize"></span>
+				</div>
+				<div class="terminal-title">user@portfolio:~$ send_message.sh</div>
+			</div>
+			<div class="terminal-body">
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> cat contact_info.txt
+					</div>
+					<div class="contact-info">
+						<div class="contact-item">
+							<span class="contact-label">$ open email</span>
+							<a href="mailto:ouguahii@gmail.com" class="contact-value">ouguahii@gmail.com</a>
+						</div>
+						<div class="contact-item">
+							<span class="contact-label">$ open phone</span>
+							<a href="tel:+212613383197" class="contact-value">+212613383197</a>
+						</div>
+						<div class="contact-item">
+							<span class="contact-label">$ open location</span>
+							<span class="contact-value">Casablanca, Morocco</span>
+						</div>
+					</div>
+				</div>
+
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> connect social_networks
+					</div>
+					<div class="social-links">
+						<a href="https://github.com/TH3-HUNT3R" target="_blank" class="social-link">
+							<span class="social-prefix">$</span>
+							<span class="social-command">open github</span>
+							<span class="social-icon">→</span>
+						</a>
+						<a href="https://www.linkedin.com/in/imad-ouguahi-423aba152/" target="_blank" class="social-link">
+							<span class="social-prefix">$</span>
+							<span class="social-command">connect linkedin</span>
+							<span class="social-icon">→</span>
+						</a>
+						<a href="https://x.com/TH3_HUNT3R_" target="_blank" class="social-link">
+							<span class="social-prefix">$</span>
+							<span class="social-command">open twitter</span>
+							<span class="social-icon">→</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="terminal-output">
+					<div class="output-line">
+						<span class="prompt-inline">user@portfolio:~$</span> ./send_message.sh
+					</div>
+					<form class="contact-form" action="https://formspree.io/f/xnndqpzy" method="POST">
+						<div class="form-group">
+							<label class="form-label">
+								<span class="form-prompt">$</span> name:
+							</label>
+							<input type="text" name="name" class="form-input" placeholder="Enter your name" required>
+						</div>
+						<div class="form-group">
+							<label class="form-label">
+								<span class="form-prompt">$</span> email:
+							</label>
+							<input type="email" name="email" class="form-input" placeholder="your.email@example.com" required>
+						</div>
+						<div class="form-group">
+							<label class="form-label">
+								<span class="form-prompt">$</span> message:
+							</label>
+							<textarea name="message" class="form-input form-textarea" placeholder="Type your message here..." required></textarea>
+						</div>
+						<button type="submit" class="form-submit">
+							<span class="submit-prefix">></span>
+							<span class="submit-text">Execute send_message.sh</span>
+							<span class="submit-icon">▶</span>
+						</button>
+					</form>
+					<div class="form-success" id="form-success" style="display: none;">
+						<div class="success-message">
+							<span class="success-prefix">[SUCCESS]</span>
+							<span class="success-text">Message sent successfully. Awaiting response...</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer class="terminal-footer">
+			<div class="footer-content">
+				<div class="footer-status">
+					<span class="footer-item">[UPTIME: <span id="uptime">00:00:00</span>]</span>
+					<span class="footer-item">[LAST LOGIN: <span id="last-login"></span>]</span>
+					<span class="footer-item">[SYSTEM: STABLE]</span>
+				</div>
+				<div class="footer-copy">
+					© 2025 Imad Ouguahi. All rights reserved. | hunt3r@cybersec:~#
+				</div>
+			</div>
 		</footer>
-		
-		<!-- Lines -->
-		<div class="line top"></div>
-		<div class="line bottom"></div>
-		<div class="line left"></div>
-		<div class="line right"></div>
-		
 	</div>
-	
-	<!-- jQuery Scripts -->
-    <script src="js/jquery.min.js"></script>
-	<script src="js/jquery.validate.js"></script>
-	<script src="js/typed.js"></script>
-	<script src="js/magnific-popup.js"></script>
-	<script src="js/imagesloaded.pkgd.js"></script>
-	<script src="js/isotope.pkgd.js"></script>
-	
-	<!-- Main Scripts -->
-	<script src="js/glitche-scripts.js"></script>
 
-	<!-- bslthemes.com buttons html begin -->
-	<div class="bsl-popup" data-theme="glitche" data-category="html">
-		<div class="bsl-popup__buttons"></div>
-		<div class="bsl-popup__content bsl-popup__content-related">
-		<div class="bsl-popup__menu"></div>
-		<div class="bsl-popup__tabs">
-			<div class="bsl-popup__tab bsl-popup__tab-demo"></div>
-			<div class="bsl-popup__tab bsl-popup__tab-all"></div>
-			<div class="bsl-popup__tab bsl-popup__tab-related"></div>
-					<div class="bsl-popup__tab bsl-popup__tab-version"></div>
-		</div>
-		</div>
-		<div class="bsl-popup__content bsl-popup__content-help"></div>
-	</div>
-	<!-- bslthemes.com buttons html end -->
-
-  	<!-- bslthemes.com buttons assets begin -->
-	<link rel="stylesheet" href="../../bslthms-advanced-btns/assets/style.css">
-	<script src="../../bslthms-advanced-btns/assets/script.js"></script>
-  	<!-- bslthemes.com buttons assets end -->
-	
+	<!-- JavaScript -->
+	<script src="js/terminal.js"></script>
+	<script src="js/medium-feed.js"></script>
 </body>
-
 </html>
